@@ -3,73 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HZ - Portal</title>
+    <title>H. Zhou - Home</title>
     <style>
-        /* Global Reset */
-        body {
+        /* --- GLOBAL RESET & TYPOGRAPHY --- */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            height: 100vh; /* Full viewport height */
-            display: flex; /* Flexbox for split layout */
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f4f4;
+            padding: 0;
         }
 
-        /* Common styles for both sides */
-        .split {
-            flex: 1; /* Each side takes 50% width initially */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #1a1a1a; /* Dark gray for softer contrast */
+            line-height: 1.6;
+            background-color: #ffffff;
+            /* Add some side padding so content doesn't touch edges */
+            padding: 0 5%; 
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #666; /* Lighter gray on hover */
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            display: flex;
+            justify-content: space-between; /* Name left, Nav right */
+            align-items: center;
+            padding: 40px 0; /* Vertical spacing for header */
+            margin-bottom: 60px; /* Space between header and content */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            margin-left: 30px; /* Space between links */
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* --- MAIN CONTENT SECTION --- */
+        main {
+            display: flex;
+            align-items: flex-start; /* Align top */
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto; /* Center the container */
+            gap: 60px; /* Space between text and image */
+        }
+
+        /* Left Column: Text */
+        .text-column {
+            flex: 1; /* Takes up remaining space */
+            max-width: 600px; /* Limit line length for readability */
+        }
+
+        h1 {
+            font-size: 3.5rem; /* Big headline like the example */
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 400; /* Regular weight, not too bold */
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .email-link {
+            text-decoration: underline;
+            text-underline-offset: 4px; /* Modern underline style */
+        }
+
+        /* Right Column: Image / Placeholder */
+        .image-column {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end; /* Align image to the right */
+        }
+
+        /* --- IMAGE PLACEHOLDER (For now) --- */
+        .placeholder-box {
+            width: 100%;
+            max-width: 500px;
+            height: 400px; /* Arbitrary height for placeholder */
+            background-color: #f0f0f0; /* Light gray */
+            border: 1px dashed #ccc;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.5s ease; /* Smooth animation on hover */
-            text-decoration: none; /* Remove underline from links */
-            color: #333;
-            position: relative;
+            color: #999;
+            font-style: italic;
         }
 
-        /* Hover Effect: The hovered side expands */
-        .split:hover {
-            flex: 1.5; 
-            font-weight: bold;
-            cursor: pointer;
+        /* --- REAL IMAGE STYLING (For later) --- */
+        /* When you upload an image, remove .placeholder-box and use this:
+           <img src="your-photo.jpg" class="profile-photo" alt="H. Zhou">
+        */
+        .profile-photo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            filter: grayscale(100%); /* Optional: B&W effect like reference */
         }
 
-        /* Left Side: Academic */
-        .academic {
-            background-color: #ffffff; 
-            border-right: 1px solid #ddd;
-        }
 
-        /* Right Side: Personal */
-        .personal {
-            background-color: #f9f9f9; 
-        }
-
-        /* Text Styling */
-        h1 {
-            font-size: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* Mobile Layout: Stack vertically instead of side-by-side */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
+            header {
+                padding: 20px 0;
             }
-            .split {
-                border-right: none;
-                border-bottom: 1px solid #ddd;
+            
+            main {
+                flex-direction: column; /* Stack text on top of image */
+                gap: 40px;
+            }
+
+            .image-column {
+                justify-content: flex-start; /* Align left on mobile */
+                width: 100%;
+            }
+
+            .placeholder-box {
+                max-width: 100%; /* Full width on mobile */
+            }
+
+            h1 {
+                font-size: 2.5rem; /* Smaller heading on mobile */
             }
         }
     </style>
 </head>
 <body>
-    <a href="https://professional.z-hg.com" class="split academic">
-        <h1>Professional</h1>
-    </a>
-    
-    <a href="https://personal.z-hg.com" class="split personal">
-        <h1>Personal</h1>
-    </a>
+
+    <header>
+        <div class="logo">HZ</div>
+        <nav>
+            <a href="https://professional.z-hg.com">Professional</a>
+            <a href="https://personal.z-hg.com">Personal</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="text-column">
+            <h1>Hi, I'm HZ.</h1>
+            
+            <p>I am a student.</p>
+            
+            <p>I imagine you’re visiting for a reason. If you’re here to learn more about my research, visit my <a href="https://professional.z-hg.com" style="text-decoration: underline;">Professional page</a>. If you want to learn more about me as a human, visit my <a href="https://personal.z-hg.com" style="text-decoration: underline;">Personal page</a>.</p>
+            
+            <!-- <p>You can always get in touch with me via my email: <a href="mailto:hegguang.zhou@yale.edu" class="email-link">hegguang.zhou@yale.edu</a>.</p> -->
+        </div>
+
+        <!-- <div class="image-column">
+            <div class="placeholder-box">
+                [Photo will be uploaded here]
+            </div>
+
+            </div> -->
+    </main>
+
 </body>
 </html>
