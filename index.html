@@ -1,1 +1,75 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HZ - Portal</title>
+    <style>
+        /* Global Reset */
+        body {
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Flexbox for split layout */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Common styles for both sides */
+        .split {
+            flex: 1; /* Each side takes 50% width initially */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease; /* Smooth animation on hover */
+            text-decoration: none; /* Remove underline from links */
+            color: #333;
+            position: relative;
+        }
+
+        /* Hover Effect: The hovered side expands */
+        .split:hover {
+            flex: 1.5; 
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Left Side: Academic */
+        .academic {
+            background-color: #ffffff; 
+            border-right: 1px solid #ddd;
+        }
+
+        /* Right Side: Personal */
+        .personal {
+            background-color: #f9f9f9; 
+        }
+
+        /* Text Styling */
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Mobile Layout: Stack vertically instead of side-by-side */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .split {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://professional.z-hg.com" class="split academic">
+        <h1>Professional</h1>
+    </a>
+    
+    <a href="https://personal.z-hg.com" class="split personal">
+        <h1>Personal</h1>
+    </a>
+</body>
+</html>
